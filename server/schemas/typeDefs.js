@@ -17,10 +17,20 @@ const typeDefs = gql`
         listings: [Listing]
     }
 
+    type Auth {
+        token: ID
+        user: User
+    }
+
     type Query {
         users: [User]
+        user: User
         listings: [Listing]
         listing(_id: ID!): Listing 
+    }
+
+    type Mutation {
+        addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     }
 `;
 
