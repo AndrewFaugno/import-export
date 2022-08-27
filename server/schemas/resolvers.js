@@ -28,6 +28,19 @@ const resolvers = {
          const token = signToken(user);
 
          return { token, user };
+      },
+      addListing: async (parent, args, context) => {
+         if (context.user) {
+            const listing = await Listing.create({ args });
+
+            await User.findOneAndUpdate(
+               { _id: context.user._id },
+               { $push: { listings: listing._id } },
+               { new: true }
+            )
+
+            return listing;
+         }
       }
    }
 };

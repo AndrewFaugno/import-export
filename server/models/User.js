@@ -1,8 +1,5 @@
-const mongoose = require("mongoose");
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 const bcrypt = require("bcrypt");
-const Listing = require("./Listing");
 
 const userSchema = new Schema({
   firstName: {
@@ -20,14 +17,19 @@ const userSchema = new Schema({
     required: true,
     trim: true,
     unique: true,
-    match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "Please enter a valid email"],
+    match: [/^([a-zA-Z0-9_\.-]+)@([\da-zA-Z\.-]+)\.([a-zA-Z\.]{2,6})$/, "Please enter a valid email"],
   },
   password: {
     type: String,
     required: true,
     minLength: 4,
   },
-  listings: [Listing.schema],
+  listings: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Listing'
+    }
+  ],
 });
 
 // pre-save middleware to create password
@@ -45,6 +47,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;
