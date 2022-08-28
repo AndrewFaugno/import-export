@@ -7,6 +7,7 @@ const typeDefs = gql`
         description: String
         price: Float
         image: String
+        userId: String
     }
 
     type User {

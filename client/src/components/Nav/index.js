@@ -4,7 +4,7 @@ const Nav = () => {
     const loggedIn = Auth.loggedIn();
 
     return (
-        <div className="bg-dark">
+        <div className="bg-dark mb-5 p-4">
             <div className="d-flex justify-content-around">
                 <div className="m-auto">
                     <h1>

@@ -17,6 +17,10 @@ const listingSchema = new Schema({
    image: {
       type: String
    },
+   userId: {
+      type: String,
+      required: true
+   }
 });
 
 const Listing = model('Listing', listingSchema);

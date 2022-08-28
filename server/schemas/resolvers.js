@@ -47,7 +47,7 @@ const resolvers = {
       },
       addListing: async (parent, args, context) => {
          if (context.user) {
-            const listing = await Listing.create(args);
+            const listing = await Listing.create({...args, userId: context.user._id});
 
             await User.findOneAndUpdate(
                { _id: context.user._id },

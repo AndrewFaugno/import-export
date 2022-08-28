@@ -33,6 +33,7 @@ db.once("open", async () => {
       description: "Lorem ipsum",
       price: 1199.99,
       image: "imagePathHere",
+      userId: 'userIdHere'
    });
 
    const listing2 = await Listing.create({
@@ -40,6 +41,7 @@ db.once("open", async () => {
       description: "Lorem ipsum",
       price: 199.99,
       image: "imagePathHere",
+      userId: 'userIdHere'
    });
 
    const listing3 = await Listing.create({
@@ -47,7 +49,8 @@ db.once("open", async () => {
     description: "Lorem ipsum",
     price: 22.50,
     image: "imagePathHere",
- });
+    userId: 'userIdHere'
+   });
 
    // push listings to users
    await User.updateOne({ firstName: "Andrew" }, { $push: { listings: listing1 } });
