@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
     const loggedIn = Auth.loggedIn();
 
+    const logout = e => {
+        e.preventDefault();
+        Auth.logout();
+    };
+
     return (
         <div className="bg-dark mb-5 p-4">
             <div className="d-flex justify-content-around">
@@ -14,12 +19,17 @@ const Nav = () => {
                 </div>
                 <div className="m-auto">
                     {loggedIn ? (
+                        <>
                         <Link to="/profile">
                             <span className="material-symbols-outlined profileIcon">account_circle</span>    
                         </Link>
+                        <a href='/' onClick={logout} className="mx-5">
+                            <span className="material-symbols-outlined profileIcon">logout</span>    
+                        </a>
+                        </>
                     ) : (
                     <Link to="/login" className="mr-3">
-                        <span className="material-symbols-outlined">login</span>
+                        <span className="material-symbols-outlined profileIcon">login</span>
                     </Link>
                     )}
                 </div>

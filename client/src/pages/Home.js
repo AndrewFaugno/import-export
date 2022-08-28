@@ -1,6 +1,6 @@
 const Home = () => {
     return (
-        <h1>TODO: figure out images and create homepage </h1>
+        <h1 className="text-center">TODO: figure out images and create homepage </h1>
     )
 }
 
