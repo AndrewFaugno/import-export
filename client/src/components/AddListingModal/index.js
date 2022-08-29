@@ -1,4 +1,17 @@
-const AddListingModal = () => {
+import Modal from 'react-modal';
+
+const AddListingModal = ({ modalIsOpen, setModalOpen }) => {
+    const customStyles = {
+        content: {
+          top: '50%',
+          left: '50%',
+          right: 'auto',
+          bottom: 'auto',
+          marginRight: '-50%',
+          transform: 'translate(-50%, -50%)',
+        },
+      };
+
    const apiUrl = "https://api.imgur.com/3/image";
    const apiKey = "08fbcc640c27bbb";
 
@@ -24,7 +37,8 @@ const AddListingModal = () => {
          });
    };
    return (
-      <div className="container card ">
+    <Modal isOpen={modalIsOpen} style={customStyles}>
+      <div className=" ">
          <form onSubmit={handleSubmit}>
             <div>
                <label htmlFor="title">Product Title:</label>
@@ -37,7 +51,9 @@ const AddListingModal = () => {
                </button>
             </div>
          </form>
+         <button onClick={() => setModalOpen(false)}>X</button>
       </div>
+    </Modal>
    );
 };
 
