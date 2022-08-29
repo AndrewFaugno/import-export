@@ -32,7 +32,7 @@ db.once("open", async () => {
       name: "iPhone",
       description: "Lorem ipsum",
       price: 1199.99,
-      image: "2vSopf5",
+      image: "https:\/\/i.imgur.com\/2vSopf5.png",
       userId: 'userIdHere'
    });
 
@@ -40,7 +40,7 @@ db.once("open", async () => {
       name: "GPU",
       description: "Lorem ipsum",
       price: 199.99,
-      image: "QIS9UbZ",
+      image: "https:\/\/i.imgur.com\/QIS9UbZ.jpg",
       userId: 'userIdHere'
    });
 
@@ -48,7 +48,7 @@ db.once("open", async () => {
     name: "Blanket",
     description: "Lorem ipsum",
     price: 22.50,
-    image: "01Lgb0I",
+    image: "https:\/\/i.imgur.com\/01Lgb0I.png",
     userId: 'userIdHere'
    });
 
