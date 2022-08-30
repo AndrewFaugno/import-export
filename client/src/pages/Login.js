@@ -31,22 +31,22 @@ const Login = () => {
 
    return (
       <div className="card container col-8 col-lg-6 col-xl-4 my-1">
-         <h1 className="">Login</h1>
+         <h1>Login</h1>
          <form className="m-auto" onSubmit={handleFormSubmit}>
             <div className="my-2">
                <label htmlFor="email" className="d-block">
                   Email:
                </label>
-               <input placeholder="email" name="email" type="email" id="email" onChange={handleChange} />
+               <input placeholder="email" name="email" type="email" id="email" onBlur={handleChange} />
             </div>
             <div className="my-2">
                <label htmlFor="password" className="d-block">
                   Password:
                </label>
-               <input placeholder="password" name="password" type="password" id="password" onChange={handleChange} />
+               <input placeholder="password" name="password" type="password" id="password" onBlur={handleChange} />
             </div>
             <div className="text-center my-3">
-               <button className="btn m-auto btn-dark w-100">Submit</button>
+               <button className="btn m-auto btn-dark w-100">Login</button>
             </div>
          </form>
          {error && 
