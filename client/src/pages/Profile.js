@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
 import AddListingModal from '../components/AddListingModal';
 
 const Profile = () => {
