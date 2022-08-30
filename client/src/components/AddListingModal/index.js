@@ -23,9 +23,7 @@ const AddListingModal = ({ modalIsOpen, setModalOpen }) => {
    const apiUrl = "https://api.imgur.com/3/image";
    const apiKey = "08fbcc640c27bbb";
 
-   const handleSubmit = async (e) => {
-      e.preventDefault();
-
+   const handleImage = () => {
       // define inputed file
       const input = document.getElementById("file");
       const file = input.files[0];
@@ -41,26 +39,30 @@ const AddListingModal = ({ modalIsOpen, setModalOpen }) => {
       })
          .then((data) => data.json())
          .then((data) => {
-            let imageUrl = data.data.link;
             setFormState({
                ...formState,
-               image: imageUrl,
+               image: data.data.link,
             });
-
-            try {
-               addListing({
-                  variables: {
-                     name: formState.name,
-                     price: formState.price,
-                     description: formState.description,
-                     image: formState.image,
-                  },
-               });
-               setModalOpen(false);
-            } catch (e) {
-               console.error(e);
-            }
          });
+      console.log(formState)
+   }
+
+   const handleSubmit = async (e) => {
+      e.preventDefault();
+      console.log(formState)
+      try {
+         await addListing({
+            variables: {
+               name: formState.name,
+               description: formState.description,
+               price: parseInt(formState.price),
+               image: formState.image
+            },
+         });
+         setModalOpen(false);
+      } catch (e) {
+         console.error(e);
+      }
    };
 
    const handleChange = (e) => {
@@ -93,7 +95,7 @@ const AddListingModal = ({ modalIsOpen, setModalOpen }) => {
                   <label htmlFor="price" className="d-block mt-2">
                      Product Price:
                   </label>
-                  <input type="number" name="price" placeholder="29.99" onBlur={handleChange} />
+                  <input type="number" step="0.01" name="price" placeholder="29.99" onBlur={handleChange} />
                </div>
                <div className="my-3">
                   <label htmlFor="description" className="d-block">
@@ -102,7 +104,7 @@ const AddListingModal = ({ modalIsOpen, setModalOpen }) => {
                   <textarea name="description" type="text" placeholder="product description here" rows="3" onBlur={handleChange} />
                </div>
                <div className="text-center">
-                  <input type="file" id="file" />
+                  <input type="file" id="file" onChange={handleImage}/>
                </div>
                <div className="pt-5">
                   <button type="submit" className="btn btn-dark">
