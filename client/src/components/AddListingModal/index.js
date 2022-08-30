@@ -37,7 +37,7 @@ const AddListingModal = ({ modalIsOpen, setModalOpen }) => {
       })
          .then((data) => data.json())
          .then((data) => {
-            console.log(data.link);
+            console.log(data);
          });
    };
    return (
