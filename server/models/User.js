@@ -30,6 +30,7 @@ const userSchema = new Schema({
       ref: 'Listing'
     }
   ],
+  cart: []
 });
 
 // pre-save middleware to create password

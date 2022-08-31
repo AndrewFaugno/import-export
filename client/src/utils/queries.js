@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 export const QUERY_LISTINGS = gql`
    query Query {
       listings {
+         _id
          name
          description
          price
@@ -15,8 +16,8 @@ export const QUERY_LISTINGS = gql`
 export const QUERY_LISTING = gql`
    query singleListing($id: ID!) {
       listing(_id: $id) {
-         name
          _id
+         name
          description
          price
          image
@@ -56,6 +57,13 @@ export const QUERY_ME = gql`
             price
             image
             userId
+         }
+         cart {
+            _id
+            name
+            description
+            price
+            image
          }
       }
    }

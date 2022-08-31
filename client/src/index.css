@@ -24,6 +24,7 @@ code {
 .profileIcon {
   font-size: 40px;
   color: white;
+  cursor: pointer;
 }
 
 .profileIcon:hover, .title:hover {
@@ -46,4 +47,18 @@ code {
 
 .homepageWidth {
   width: 65%;
+}
+
+.cartImg {
+  height: 75px;
+}
+
+.trashcan {
+  color: red;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.trashcan:hover {
+  color: rgb(110, 43, 43);
 }

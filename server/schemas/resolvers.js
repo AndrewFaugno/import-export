@@ -60,14 +60,41 @@ const resolvers = {
          if (context.user) {
             const listing = await Listing.create({...args, userId: context.user._id});
 
-            await User.findOneAndUpdate(
+            return await User.findOneAndUpdate(
                { _id: context.user._id },
                { $push: { listings: listing._id } },
+               { new: true }
+            )
+         }
+      },
+      addToCart: async (parent, { _id }, context) => {
+         if (context.user) {
+            const listing = await Listing.findOne({ _id })
+
+            await User.findOneAndUpdate(
+               { _id: context.user._id },
+               { $addToSet: { cart: listing }},
                { new: true }
             )
 
             return listing;
          }
+
+         throw new AuthenticationError('Not logged in');
+      },
+      removeFromCart: async (parent, { _id }, context) => {
+         if (context.user) {
+            const listing = await Listing.findOne({ _id })
+
+            await User.findOneAndUpdate(
+               { _id: context.user._id },
+               { $pull: { cart: listing }},
+               { new: true }
+            )
+            return listing;
+         }
+         
+         throw new AuthenticationError('Not logged in');
       }
    }
 };

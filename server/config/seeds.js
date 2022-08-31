@@ -39,7 +39,7 @@ db.once("open", async () => {
    const listing2 = await Listing.create({
       name: "GPU",
       description: "Lorem ipsum",
-      price: 199.99,
+      price: 1899.99,
       image: "https:\/\/i.imgur.com\/QIS9UbZ.jpg",
       userId: 'userIdHere'
    });
@@ -47,15 +47,25 @@ db.once("open", async () => {
    const listing3 = await Listing.create({
     name: "Blanket",
     description: "Lorem ipsum",
-    price: 22.50,
+    price: 22.55,
     image: "https:\/\/i.imgur.com\/01Lgb0I.png",
     userId: 'userIdHere'
    });
+
+   const listing4 = await Listing.create({
+      name: "Dog Toy",
+      description: "Lorem ipsum",
+      price: 14.85,
+      image: "https:\/\/i.imgur.com\/brXGAWP.jpg",
+      userId: 'userIdHere'
+     });
 
    // push listings to users
    await User.updateOne({ firstName: "Andrew" }, { $push: { listings: listing1 } });
    await User.updateOne({ firstName: "Michael" }, { $push: { listings: listing2 } });
    await User.updateOne({ firstName: "Richard" }, { $push: { listings: listing3 } });
+   await User.updateOne({ firstName: "Richard" }, { $push: { listings: listing4 } });
+
 
 
    console.log("All done!");

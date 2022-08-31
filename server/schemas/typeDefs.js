@@ -16,6 +16,7 @@ const typeDefs = gql`
         lastName: String
         email: String
         listings: [Listing]
+        cart: [Listing]
     }
 
     type Auth {
@@ -35,6 +36,8 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
         addListing(name: String!, description: String!, price: Float!, image: String!): Listing
+        addToCart(_id: ID!): Listing
+        removeFromCart(_id: ID!): Listing
     }
 `;
 
