@@ -1,5 +1,5 @@
 body {
-  background-color: grey;
+  background-color: rgba(0, 0, 0, 0.628);
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,8 +12,22 @@ code {
     monospace;
 }
 
+.title {
+  text-decoration: none !important;
+  color: white;
+}
+
+.naviBar {
+  background-color: green;
+}
+
 .profileIcon {
   font-size: 40px;
+  color: white;
+}
+
+.profileIcon:hover, .title:hover {
+  color: rgb(0, 195, 255);
 }
 
 .productImage {

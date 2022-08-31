@@ -10,11 +10,11 @@ const Nav = () => {
     };
 
     return (
-        <div className="bg-dark mb-5 p-4">
+        <div className="naviBar bg-dark mb-5 p-4">
             <div className="d-flex justify-content-around">
                 <div className="m-auto">
                     <h1>
-                        <Link to="/" className="">Import Export</Link>
+                        <Link to="/" className="title">Import Export</Link>
                     </h1>
                 </div>
                 <div className="m-auto">
@@ -25,6 +25,9 @@ const Nav = () => {
                         </Link>
                         <a href='/' onClick={logout} className="mx-5">
                             <span className="material-symbols-outlined profileIcon">logout</span>    
+                        </a>
+                        <a href='#'>
+                            <span class="material-symbols-outlined profileIcon">shopping_cart</span>
                         </a>
                         </>
                     ) : (
