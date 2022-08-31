@@ -1,13 +1,13 @@
 import { useMutation } from "@apollo/client";
 import { REMOVE_FROM_CART } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
 
 const CartItems = ({ item }) => {
-    const [removeFromCart] = useMutation(REMOVE_FROM_CART);
+    const [removeFromCart] = useMutation(REMOVE_FROM_CART)
 
-    const remove = function(id) {
-        console.log(id)
+    const remove = async (id) => {
         try {
-             removeFromCart({
+            removeFromCart({
                 variables: { id: id },
             });
         } catch (e) {
@@ -25,7 +25,9 @@ const CartItems = ({ item }) => {
                 </div>
             </div>
             <div className="text-right">
-                <span className="material-symbols-outlined trashcan" onClick={() => remove(item._id)}>delete</span>
+                <span className="material-symbols-outlined trashcan" onClick={() => remove(item._id)}>
+                    delete
+                </span>
             </div>
         </div>
     );

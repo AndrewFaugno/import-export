@@ -1,13 +1,28 @@
 import Auth from "../../utils/auth";
 import { useMutation } from "@apollo/client";
 import { ADD_TO_CART } from "../../utils/mutations";
+import { QUERY_ME } from '../../utils/queries';
 
 const ProductList = ({ listings }) => {
-    const [addToCart] = useMutation(ADD_TO_CART);
+    const [addToCart] = useMutation(ADD_TO_CART, {
+        update(cache, { data: addToCart }) {
+            try {
+                // update 'me' cache array
+                const { me } = cache.readQuery({ query: QUERY_ME });
+                cache.writeQuery({
+                    query: QUERY_ME,
+                    data: { me: { ...me, cart: [...me.cart, addToCart.addToCart ]}}
+                });
+            } catch (e) {
+                console.error(e)
+            }
+        }
+    });
+
+
     const addItem = async (productId) => {
-      
         try {
-            addToCart({
+            await addToCart({
                 variables: { id: productId },
             });
         } catch (e) {

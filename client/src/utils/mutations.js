@@ -43,6 +43,9 @@ export const ADD_TO_CART = gql`
         addToCart(_id: $id) {
             _id
             name
+            description
+            image
+            price
         }
     }
 `;
