@@ -4,6 +4,9 @@
   ## Description
   MERN e-commerce store where users can add their own listings and add other items to their cart. <br>
   View deployed application [here!](https://import-export-andrewfaugno.herokuapp.com/)
+  <br>
+  ![import-export](https://user-images.githubusercontent.com/93367297/187792412-9e1f7edc-8ec1-417d-b5b2-a904d7ab3941.PNG)
+
 
   ## Table of Contents
   * [Installation](#installation)
