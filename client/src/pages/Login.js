@@ -43,7 +43,7 @@ const Login = () => {
                <label htmlFor="password" className="d-block">
                   Password:
                </label>
-               <input placeholder="password" name="password" type="password" id="password" onBlur={handleChange} />
+               <input placeholder="*******" name="password" type="password" id="password" onBlur={handleChange} />
             </div>
             <div className="text-center my-3">
                <button className="btn m-auto btn-dark w-100">Login</button>
