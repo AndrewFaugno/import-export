@@ -23,7 +23,7 @@ const ProductList = ({ listings }) => {
     const deleteListing = async (productId) => {
         try {
             await removeListing({
-                variables: { _id: productId },
+                variables: { id: productId },
             });
         } catch (e) {
             console.error(e);

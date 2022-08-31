@@ -69,13 +69,7 @@ const resolvers = {
       },
       removeListing: async (parent, { _id }, context) => {
          if (context.user) {
-            const listing = await Listing.findOneAndDelete({ _id })
-
-            return await User.findOneAndUpdate(
-               { _id: context.user._id},
-               { $pull: { listings: listing._id } },
-               { new: true }
-            )
+            return await Listing.findOneAndDelete({ _id })
          }
       },
       addToCart: async (parent, { _id }, context) => {

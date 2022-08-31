@@ -33,7 +33,7 @@ db.once("open", async () => {
       description: "Lorem ipsum",
       price: 1199.99,
       image: "https:\/\/i.imgur.com\/2vSopf5.png",
-      userId: 'userIdHere'
+      userId: '1111'
    });
 
    const listing2 = await Listing.create({
@@ -41,7 +41,7 @@ db.once("open", async () => {
       description: "Lorem ipsum",
       price: 1899.99,
       image: "https:\/\/i.imgur.com\/QIS9UbZ.jpg",
-      userId: 'userIdHere'
+      userId: '2222'
    });
 
    const listing3 = await Listing.create({
@@ -49,7 +49,7 @@ db.once("open", async () => {
     description: "Lorem ipsum",
     price: 22.55,
     image: "https:\/\/i.imgur.com\/01Lgb0I.png",
-    userId: 'userIdHere'
+    userId: '33333'
    });
 
    const listing4 = await Listing.create({
@@ -57,7 +57,7 @@ db.once("open", async () => {
       description: "Lorem ipsum",
       price: 14.85,
       image: "https:\/\/i.imgur.com\/brXGAWP.jpg",
-      userId: 'userIdHere'
+      userId: '3333'
      });
 
    // push listings to users

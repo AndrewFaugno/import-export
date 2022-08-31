@@ -56,6 +56,7 @@ export const QUERY_ME = gql`
                 description
                 price
                 image
+                userId
             }
             cart {
                 _id
