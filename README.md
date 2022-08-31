@@ -12,7 +12,6 @@
   * [Installation](#installation)
   * [Usage](#usage)
   * [Contribution](#contribution)
-  * [Test](#test)
   * [Questions](#questions)
   * [License](#license)
   
@@ -25,10 +24,6 @@
   ## Contribution
   see installation
 
-  ## Test
-  na
-
-  
   ## License 
   This application is covered by [MIT](https://choosealicense.com/licenses/mit/)
   
