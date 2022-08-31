@@ -38,6 +38,7 @@ const typeDefs = gql`
         addListing(name: String!, description: String!, price: Float!, image: String!): Listing
         addToCart(_id: ID!): Listing
         removeFromCart(_id: ID!): Listing
+        removeListing(_id: ID!): User     
     }
 `;
 

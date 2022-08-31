@@ -57,3 +57,13 @@ export const REMOVE_FROM_CART = gql`
         }
     }
 `;
+
+export const REMOVE_LISTING = gql`
+    mutation removeListing($id: ID!) {
+        removeListing(_id: $id) {
+            listings {
+                _id
+            }
+        }
+    }
+`;

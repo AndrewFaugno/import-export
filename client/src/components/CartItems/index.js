@@ -1,6 +1,5 @@
 import { useMutation } from "@apollo/client";
 import { REMOVE_FROM_CART } from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
 
 const CartItems = ({ item }) => {
     const [removeFromCart] = useMutation(REMOVE_FROM_CART)

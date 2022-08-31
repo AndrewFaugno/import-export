@@ -1,9 +1,10 @@
 import Auth from "../../utils/auth";
 import { useMutation } from "@apollo/client";
-import { ADD_TO_CART } from "../../utils/mutations";
-import { QUERY_ME } from '../../utils/queries';
+import { ADD_TO_CART, REMOVE_LISTING } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
 
 const ProductList = ({ listings }) => {
+    const [removeListing] = useMutation(REMOVE_LISTING);
     const [addToCart] = useMutation(ADD_TO_CART, {
         update(cache, { data: addToCart }) {
             try {
@@ -11,14 +12,23 @@ const ProductList = ({ listings }) => {
                 const { me } = cache.readQuery({ query: QUERY_ME });
                 cache.writeQuery({
                     query: QUERY_ME,
-                    data: { me: { ...me, cart: [...me.cart, addToCart.addToCart ]}}
+                    data: { me: { ...me, cart: [...me.cart, addToCart.addToCart] } },
                 });
             } catch (e) {
-                console.error(e)
+                console.error(e);
             }
-        }
+        },
     });
 
+    const deleteListing = async (productId) => {
+        try {
+            await removeListing({
+                variables: { _id: productId },
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     const addItem = async (productId) => {
         try {
@@ -49,7 +59,9 @@ const ProductList = ({ listings }) => {
                             <h5 className="card-text">${listing.price}</h5>
                             <p className="card-text">{listing.description}</p>
                             {checkListing(listing.userId) ? (
-                                <button className="btn btn-danger">Delete Listing</button>
+                                <button className="btn btn-danger" onClick={() => deleteListing(listing._id)}>
+                                    Delete Listing
+                                </button>
                             ) : (
                                 <button className="btn btn-primary" onClick={() => addItem(listing._id)}>
                                     Add to Cart

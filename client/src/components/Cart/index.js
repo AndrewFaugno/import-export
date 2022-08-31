@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 import CartItems from "../CartItems";
-import "./index.css";
+import "./style.css";
 
 const Cart = () => {
     const { data } = useQuery(QUERY_ME);
