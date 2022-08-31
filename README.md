@@ -2,7 +2,8 @@
   ![](https://img.shields.io/badge/License-MIT-blue)
 
   ## Description
-  MERN e-commerce store where users can add their own listings and add other items to their cart
+  MERN e-commerce store where users can add their own listings and add other items to their cart. <br>
+  View deployed application [here!](https://import-export-andrewfaugno.herokuapp.com/)
 
   ## Table of Contents
   * [Installation](#installation)
